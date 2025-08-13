@@ -7,68 +7,70 @@
     <section>
       <nav>Name/Info</nav>
       <!-- <div>
-        <input [formControl] = "firstName" placeholder="First Name" />
-        <input [formControl] = "lastName" placeholder="Last Name" />
-        <input [formControl] = "dateOfBirth" placeholder="Date of Birth" />
-        <input [formControl] = "favoritesRanking" placeholder="Favorites Ranking" />
-      </div> -->
-      <div>
-        <input formControlName = "firstName" placeholder="First Name" />
-        <input formControlName = "lastName" placeholder="Last Name" />
-        <input formControlName = "dateOfBirth" placeholder="Date of Birth" />
-        <input formControlName = "favoritesRanking" placeholder="Favorites Ranking" />
+      <input [formControl] = "firstName" placeholder="First Name" />
+      <input [formControl] = "lastName" placeholder="Last Name" />
+      <input [formControl] = "dateOfBirth" placeholder="Date of Birth" />
+      <input [formControl] = "favoritesRanking" placeholder="Favorites Ranking" />
+    </div> -->
+    <div>
+      <input formControlName = "firstName" placeholder="First Name" />
+      <input formControlName = "lastName" placeholder="Last Name" />
+      <input formControlName = "dateOfBirth" placeholder="Date of Birth" />
+      <input formControlName = "favoritesRanking" placeholder="Favorites Ranking" />
+    </div>
+  </section>
+  <section>
+    <nav>Phone</nav>
+    <div class="flex-column">
+      <div class="flex-group">
+        <input formControlName = "phoneNumber" placeholder="Phone" />
+        <img src="/assets/plus-grey-blue.png" class="add" />
       </div>
-    </section>
-    <section>
-      <nav>Phone</nav>
-      <div class="flex-column">
-        <div class="flex-group">
-          <input formControlName = "phoneNumber" placeholder="Phone" />
-          <img src="/assets/plus-grey-blue.png" class="add" />
-        </div>
-        <div class="radio">
-          <!-- <input formControlName = "phoneType" type="radio" value="mobile"> Mobile
-          <input formControlName = "phoneType" type="radio" value="work"> Work
-          <input formControlName = "phoneType" type="radio" value="other"> Other -->
-          <span *ngFor="let phoneType of phoneTypes">
+      <div class="radio">
+        <!-- <input formControlName = "phoneType" type="radio" value="mobile"> Mobile
+        <input formControlName = "phoneType" type="radio" value="work"> Work
+        <input formControlName = "phoneType" type="radio" value="other"> Other -->
+        @for (phoneType of phoneTypes; track phoneType) {
+          <span>
             <input type="radio" [formControlName]="'phoneType'" [value]="phoneType.value" />
             {{ phoneType.title }}
           </span>
-        </div>
+        }
       </div>
-    </section>
-    <section>
-      <nav>Address</nav>
-      <div>
-        <div class="address">
-          <div class="flex-group">
-            <input formControlName = "streetAddress" placeholder="Address" />
-            <img src="/assets/plus-grey-blue.png" class="add" />
-          </div>
-          <input formControlName = "city" placeholder="City" />
-          <input formControlName = "state" placeholder="State/Region" />
-          <input formControlName = "postalCode" placeholder="Zip/Postal Code" />
-          <select formControlName = "addressType">
-            <!-- <option value="home">Home</option>
-            <option value="work">Work</option>
-            <option value="mobile">Other</option> -->
-
-            <!-- <option *ngFor="let addressType of addressTypes" [value]="addressType.value">
-              {{ addressType.title }}
-            </option> -->
-
-            @for (addressType of addressTypes; track addressType.value) {
-              <option [value]="addressType.value">
-                {{ addressType.title }}
-              </option>
-            }    
-          </select>
+    </div>
+  </section>
+  <section>
+    <nav>Address</nav>
+    <div>
+      <div class="address">
+        <div class="flex-group">
+          <input formControlName = "streetAddress" placeholder="Address" />
+          <img src="/assets/plus-grey-blue.png" class="add" />
         </div>
-      </div>
-    </section>
-  </form>
-  <div class="buttons">
-    <button class="secondary">Cancel</button>
-    <button class="primary" (click)="saveContact()">Save</button>
+        <input formControlName = "city" placeholder="City" />
+        <input formControlName = "state" placeholder="State/Region" />
+        <input formControlName = "postalCode" placeholder="Zip/Postal Code" />
+        <select formControlName = "addressType">
+          <!-- <option value="home">Home</option>
+          <option value="work">Work</option>
+          <option value="mobile">Other</option> -->
+
+          <!-- <option *ngFor="let addressType of addressTypes" [value]="addressType.value">
+          {{ addressType.title }}
+        </option> -->
+
+        @for (addressType of addressTypes; track addressType.value) {
+          <option [value]="addressType.value">
+            {{ addressType.title }}
+          </option>
+        }
+      </select>
+    </div>
   </div>
+</section>
+</form>
+<div class="buttons">
+  <button class="secondary">Cancel</button>
+  <button class="primary" (click)="saveContact()">Save</button>
+</div>
 </div>
