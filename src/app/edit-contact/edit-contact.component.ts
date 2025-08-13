@@ -5,8 +5,9 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { addressTypeValues, phoneTypeValues } from 'src/app/contacts/contact.model';
 
 @Component({
-  templateUrl: './edit-contact.component.html',
-  styleUrls: ['./edit-contact.component.css']
+    templateUrl: './edit-contact.component.html',
+    styleUrls: ['./edit-contact.component.css'],
+    standalone: false
 })
 export class EditContactComponent implements OnInit {
   // firstName = new FormControl();

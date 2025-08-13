@@ -3,8 +3,9 @@ import { ContactsService } from '../contacts/contacts.service';
 import { Contact } from '../contacts/contact.model';
 
 @Component({
-  templateUrl: './contact-list.component.html',
-  styleUrls: ['./contact-list.component.css']
+    templateUrl: './contact-list.component.html',
+    styleUrls: ['./contact-list.component.css'],
+    standalone: false
 })
 export class ContactListComponent implements OnInit {
   contacts: Contact[] = [];
